@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Clifton",
+      "email": "clif@gmail.com",
+      "password": "Clifmatski1"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "The Name of the Wind",
+      "author": "Patrick Rothfuss",
+      "summary": "Dummy summary",
+      "imgUrl": "http://books.google.com/books/content?id=BcG2dVRXKukC&printsec=frontcover&img=1&zoom=5&source=gbs_api"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "bookId": 1,
+      "userId": 1
+    }
+  ],
+  "friends": []
+}
