@@ -9,41 +9,22 @@
   ],
   "books": [
     {
-      "title": " The Hunger Games ",
-      "author": "Suzanne Collins",
-      "id": 6
-    },
-    {
-      "title": " Finding the Force of the Star Wars Franchise ",
-      "author": "Matthew KapellJohn Shelton Lawrence",
-      "id": 7
-    },
-    {
-      "title": " Finding the Force of the Star Wars Franchise ",
-      "author": "Matthew KapellJohn Shelton Lawrence",
-      "id": 8
-    },
-    {
-      "title": " Mistborn ",
-      "author": "Brandon Sanderson",
-      "id": 9
-    },
-    {
-      "title": " Mistborn ",
-      "author": "Brandon Sanderson",
-      "id": 10
-    },
-    {
       "title": " Mistborn ",
       "author": "Brandon Sanderson",
       "imgUrl": "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158",
-      "id": 11
+      "id": 13
     },
     {
       "title": " Mistborn ",
       "author": "Brandon Sanderson",
-      "imgUrl": "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158",
-      "id": 12
+      "imgUrl": "http://books.google.com/books/content?id=q0pF7ly_vTEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "id": 14
+    },
+    {
+      "title": " The Wise Man's Fear ",
+      "author": "Patrick Rothfuss",
+      "imgUrl": "http://books.google.com/books/content?id=dLo_GyEykjQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "id": 15
     }
   ],
   "reviews": [],
