@@ -28,6 +28,25 @@ export default class SearchedBooks extends Component {
         }) 
           .then(() => console.log(this.state.searchResults))
       }
+    
+        
+      handleSaveBook = (event) => {
+        if (event.target.parentNode.firstChild.nextSibling.nextSibling.imageLinks === undefined){
+            let newBook = {
+                title: event.target.parentNode.firstChild.textContent,
+                author: event.target.parentNode.firstChild.nextSibling.textContent,
+                imgUrl: "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158"
+          }
+        }
+        else{
+               let newBook = {
+                title: event.target.parentNode.firstChild.textContent,
+            author: event.target.parentNode.firstChild.nextSibling.textContent,
+            imgUrl: event.target.parentNode.firstChild.nextSibling.nextSibling.imageLinks.thumbnail
+            }
+        
+          this.props.addBook(newBook).then(() => this.props.history.push("/"))
+      }}
 
 
 
@@ -61,10 +80,19 @@ export default class SearchedBooks extends Component {
                       <h1>RESULTS!!!!!!</h1>
                     {
                         this.state.searchResults.map(book => 
-                            
-                          <p> {book.volumeInfo.title} </p>
-                            // book.author
-                            
+                        <form  key={book.id} >
+                            <div className="card">
+                                <p> {book.volumeInfo.title} </p>
+                                <p>{book.volumeInfo.authors}</p> 
+                                <img src={book.volumeInfo.imageLinks.thumbnail} alt="oops"></img>
+                                <button 
+                                    type="button"
+                                    onClick={this.handleSaveBook}
+                                    className="saveBook btn btn-primary"
+                                    id={book.id}
+                                    >Save Book</button>
+                            </div>
+                        </form>
                         )
                     }
 

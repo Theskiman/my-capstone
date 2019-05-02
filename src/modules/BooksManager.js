@@ -27,7 +27,7 @@ export default {
         .then(() => this.getAllBooks())
     },
     postBook(newBook) {
-        return fetch(`${apiURL}/messages`, {
+        return fetch(`${apiURL}/books`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

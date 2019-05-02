@@ -9,20 +9,43 @@
   ],
   "books": [
     {
-      "id": 1,
-      "title": "The Name of the Wind",
-      "author": "Patrick Rothfuss",
-      "summary": "Dummy summary",
-      "imgUrl": "http://books.google.com/books/content?id=BcG2dVRXKukC&printsec=frontcover&img=1&zoom=5&source=gbs_api"
-    }
-  ],
-  "reviews": [
+      "title": " The Hunger Games ",
+      "author": "Suzanne Collins",
+      "id": 6
+    },
     {
-      "id": 1,
-      "bookId": 1,
-      "userId": 1,
-      "review": "dummy review"
+      "title": " Finding the Force of the Star Wars Franchise ",
+      "author": "Matthew KapellJohn Shelton Lawrence",
+      "id": 7
+    },
+    {
+      "title": " Finding the Force of the Star Wars Franchise ",
+      "author": "Matthew KapellJohn Shelton Lawrence",
+      "id": 8
+    },
+    {
+      "title": " Mistborn ",
+      "author": "Brandon Sanderson",
+      "id": 9
+    },
+    {
+      "title": " Mistborn ",
+      "author": "Brandon Sanderson",
+      "id": 10
+    },
+    {
+      "title": " Mistborn ",
+      "author": "Brandon Sanderson",
+      "imgUrl": "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158",
+      "id": 11
+    },
+    {
+      "title": " Mistborn ",
+      "author": "Brandon Sanderson",
+      "imgUrl": "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158",
+      "id": 12
     }
   ],
+  "reviews": [],
   "friends": []
 }

@@ -17,13 +17,13 @@ export default class PersonalLibrary extends Component {
                 <section className="bookList">
                 {
                     this.props.books.map(book => 
-                    <div>
+                    <div key={book.id}>
                         <img src={book.imgUrl} alt="Oops"></img>
                         <div key={book.id} className="card">
                             <div className="card-body">
                             <h3 className="card-title">
-                            <h4>{book.title}</h4>
-                            <h5>{book.author}</h5>
+                            <p>{book.title}</p>
+                            <p>{book.author}</p>
                             <p>{book.summary}</p>
                             <button
                                     onClick={() => this.props.deleteBook(book.id)}
