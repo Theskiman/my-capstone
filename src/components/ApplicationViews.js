@@ -62,9 +62,8 @@ export default class ApplicationViews extends Component {
         console.log(bookTitle)
         return BooksManager.searchByTitle(bookTitle)
         .then(searchedBooks => {
-            return this.setState({
-                searchedBooks: searchedBooks
-            })
+            console.log(searchedBooks)
+            return searchedBooks
         })
     }
     postUser = (newUser) => {

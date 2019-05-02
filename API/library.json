@@ -20,7 +20,8 @@
     {
       "id": 1,
       "bookId": 1,
-      "userId": 1
+      "userId": 1,
+      "review": "dummy review"
     }
   ],
   "friends": []

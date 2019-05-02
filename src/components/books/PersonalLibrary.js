@@ -28,6 +28,9 @@ export default class PersonalLibrary extends Component {
                             <button
                                     onClick={() => this.props.deleteBook(book.id)}
                                     className="card-delete">Delete</button>
+                            <button 
+                                    onClick={() => this.props.history.push("/review")}
+                                    className="review-button">Review</button>
                             </h3>
                             </div>
                         </div>

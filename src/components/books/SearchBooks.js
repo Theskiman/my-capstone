@@ -5,9 +5,8 @@ export default class SearchedBooks extends Component {
         searchBook: "",
         books: this.props.books,
         buttonClicked: false,
-        searchResults: ""
+        searchResults: []
     }
-
 
     handleFieldChange = evt => {
         const stateToChange = {};
@@ -15,21 +14,25 @@ export default class SearchedBooks extends Component {
         this.setState(stateToChange);
       };
 
-    //   searchButtonClicked = () => {
-    //       return this.setState({searchResults: this.props.books})
-    //   }
 
       handleSearch = (event) => {
           console.log("hi")
           event.preventDefault()
-          this.props.searchByTitle(this.state.searchBook).then(r => this.setState({
-              searchResults: r
-          }))
+          this.props.searchByTitle(this.state.searchBook).then(r => {
+            console.log(r)
+            this.setState({
+              searchResults: r.items,
+              buttonClicked: true
+          })
+          
+        }) 
+          .then(() => console.log(this.state.searchResults))
       }
 
 
 
       render() {
+          console.log(this.state.searchResults)
           return(
               <React.Fragment>
                   <form
@@ -52,20 +55,23 @@ export default class SearchedBooks extends Component {
                     
                     >Find Book</button>
                   </form>
-                  {this.state.searchResults !== "" ?  
+                  {(this.state.searchResults.length > 0) ?  
+                  
                   <div>
+                      <h1>RESULTS!!!!!!</h1>
                     {
-                        this.state.searchResults.items.map(book => {
-                           return book.volumeInfo.title
+                        this.state.searchResults.map(book => 
+                            
+                          <p> {book.volumeInfo.title} </p>
                             // book.author
                             
-                        })
+                        )
                     }
 
                   </div>
                   :
 
-                   null
+                   <h1>Oops</h1>
                   }
               </React.Fragment>
           )
