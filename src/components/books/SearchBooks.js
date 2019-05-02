@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./SearchedBooks.css"
 
 export default class SearchedBooks extends Component {
     state = {
@@ -78,12 +79,12 @@ export default class SearchedBooks extends Component {
                   </form>
                   {(this.state.searchResults.length > 0) ?  
                   
-                  <div>
-                      <h1>RESULTS!!!!!!</h1>
+                  <div className="mainSearch">
+                      {/* <h1>RESULTS!!!!!!</h1> */}
                     {
                         this.state.searchResults.map(book => 
                         <form  key={book.id} >
-                            <div className="card">
+                            <div className="searchedDiv">
                                 <p> {book.volumeInfo.title} </p>
                                 <p>{book.volumeInfo.authors}</p> 
                                 {(book.volumeInfo.imageLinks !== undefined) ?

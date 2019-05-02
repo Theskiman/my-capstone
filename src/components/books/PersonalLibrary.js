@@ -3,6 +3,11 @@ import "./BookList.css"
 
 export default class PersonalLibrary extends Component {
 
+ handleReview(id){
+    sessionStorage.setItem("bookId", id)
+    this.props.history.push("/review")
+ }   
+
     render () {
         return (
             <article className="header">
@@ -17,6 +22,7 @@ export default class PersonalLibrary extends Component {
                 <section className="bookList">
                 {
                     this.props.books.map(book => 
+                        
                     <div key={book.id}>
                         <img src={book.imgUrl} alt="Oops"></img>
                         <div key={book.id} className="card">
@@ -25,11 +31,14 @@ export default class PersonalLibrary extends Component {
                             <p>{book.title}</p>
                             <p>{book.author}</p>
                             <p>{book.summary}</p>
+                            
                             <button
                                     onClick={() => this.props.deleteBook(book.id)}
                                     className="card-delete">Delete</button>
                             <button 
-                                    onClick={() => this.props.history.push("/review")}
+                                    type="button"
+                                    onClick={()=>this.handleReview(book.id)}
+                                    
                                     className="review-button">Review</button>
                             </h3>
                             </div>

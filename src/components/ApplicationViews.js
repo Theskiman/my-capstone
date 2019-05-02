@@ -6,6 +6,8 @@ import UserManager from "../modules/UserManager"
 import RegisterForm from "./Authentication/Register"
 import PersonalLibrary from "./books/PersonalLibrary"
 import SearchBooks from "./books/SearchBooks"
+import ReviewBook from "./reviews/review";
+import ReviewManager from "../modules/ReviewManager";
 
 export default class ApplicationViews extends Component {
     isAuthenticated = () => sessionStorage.getItem("userId") !== null
@@ -71,6 +73,25 @@ export default class ApplicationViews extends Component {
         
       }
 
+      postReview = (newReview) => {
+          return ReviewManager.postReview(newReview)
+
+      }
+
+      getReview(){
+          return ReviewManager.getAllReviews()
+          .then(reviews => {
+              return reviews
+          })
+      }
+
+      editReview = (editedReview) => {
+          return ReviewManager.editReview(editedReview)
+          .then(review => {
+              return review
+          })
+      }
+
     render() {
         return (
             <React.Fragment>
@@ -104,6 +125,21 @@ export default class ApplicationViews extends Component {
             addBook={this.addBook}
             books={this.state.books}
             searchedBooks={this.state.searchedBooks}
+            />
+          } else {
+            return <Redirect to="/login"/>
+          }
+        }}
+        />
+
+        <Route
+           path="/review" render={props => {
+            if(this.isAuthenticated()) {
+            return <ReviewBook {...props}
+            getReview={this.getReview}
+            postReview={this.postReview}
+            reviews={this.state.reviews}
+            books={this.state.books}
             />
           } else {
             return <Redirect to="/login"/>

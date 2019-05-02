@@ -11,8 +11,18 @@ export default {
         }).then(review => review.json())
     },
 
-    getReview(id) {
-        return fetch(`${apiURL}/reviews/${id}`)
-        .then(review => review.json())
-    }
+    getAllReviews() {
+        return fetch(`${apiURL}/reviews/?_expand=book`)
+        .then(reviews => reviews.json())
+    },
+
+    editReview(editedReview) {
+        return fetch(`${apiURL}/reviews/${editedReview.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(editedReview)
+        }).then(data => data.json());
+      }
 }
