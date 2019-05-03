@@ -8,6 +8,7 @@ import PersonalLibrary from "./books/PersonalLibrary"
 import SearchBooks from "./books/SearchBooks"
 import ReviewBook from "./reviews/review";
 import ReviewManager from "../modules/ReviewManager";
+import ReviewEdit from "./reviews/ReviewEdit";
 
 export default class ApplicationViews extends Component {
     isAuthenticated = () => sessionStorage.getItem("userId") !== null
@@ -93,12 +94,21 @@ export default class ApplicationViews extends Component {
           })
       }
 
-      editReview = (editedReview) => {
-          return ReviewManager.editReview(editedReview)
+      editReview = (editedReview, id) => {
+        console.log(editedReview)
+          return ReviewManager.editReview(editedReview, id)
           .then(review => {
               return review
           })
       }
+
+      deleteReview = (review) => {
+        return ReviewManager.deleteReview(review)
+        .then(review => {
+          return review
+        }
+        )
+    }
 
     render() {
         return (
@@ -144,8 +154,25 @@ export default class ApplicationViews extends Component {
            exact path="/review" render={props => {
             if(this.isAuthenticated()) {
             return <ReviewBook {...props}
+            deleteReview={this.deleteReview}
             getReview={this.getReview}
             postReview={this.postReview}
+            reviews={this.state.reviews}
+            books={this.state.books}
+            getAllReviews={this.getAllReviews}
+            />
+          } else {
+            return <Redirect to="/login"/>
+          }
+        }}
+        />
+        <Route
+           exact path="/review/edit" render={props => {
+            if(this.isAuthenticated()) {
+            return <ReviewEdit 
+            {...props}
+            editReview={this.editReview}
+            getReview={this.getReview}
             reviews={this.state.reviews}
             books={this.state.books}
             getAllReviews={this.getAllReviews}

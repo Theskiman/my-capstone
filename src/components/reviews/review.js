@@ -38,7 +38,8 @@ export default class ReviewBook extends Component {
 
       handleAddReview = (evt) => {
           evt.preventDefault();
-          
+          let bookId = sessionStorage.getItem("bookId");
+bookId = parseInt(bookId);
         const newReview = {
             userId: userId,
             bookId: bookId,
@@ -53,17 +54,17 @@ export default class ReviewBook extends Component {
           this.props.history.push("/")
       }
 
-      handleEditReview = (editedReview) => {
-          this.props.editReview(editedReview)
-          .then(review => {
-              this.setState({
-                  reviews: review
-              })
-          })
+
+      handleDeleteReview = (event) => {
+          
+        
+          this.props.deleteReview(event.target.id)
+          .then(() => this.props.history.push("/"))
       }
 
       render(){
-            // console.log(this.state.reviews)
+          console.log(this.state.reviews)
+            
             
           return( 
               <React.Fragment>
@@ -73,8 +74,28 @@ export default class ReviewBook extends Component {
                     
                           
                               (this.state.reviews.review !== "" && this.state.reviews !== "")  ?
-                             ( <div className="trueReview">{this.state.reviews.review}</div>
-                        )
+                        (<form> 
+                             
+                              <img src={this.state.reviews.book && this.state.reviews.book.imgUrl} alt="oops"></img>
+                              <h1>{this.state.reviews.book && this.state.reviews.book.title}</h1>
+                              <h2>{this.state.reviews.book && this.state.reviews.book.author}</h2>
+                              <p>{this.state.reviews.id}</p>
+                              <p className="trueReview">{this.state.reviews.review}</p>
+                                
+                              <button 
+                                type="button"
+                                id={this.state.reviews.id}
+                                onClick={this.handleDeleteReview}
+                                className="reviewDelete"
+                                >Delete Review</button>
+                                <button 
+                                type="button"
+                                onClick={() => this.props.history.push("/review/edit")}
+                                className="reviewDelete"
+                                >Edit Review</button>
+                                
+                             </form>)
+                        
                               :
                        (<div>       
                         <form

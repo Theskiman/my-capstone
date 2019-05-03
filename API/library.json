@@ -35,24 +35,23 @@
   ],
   "reviews": [
     {
-      "id": 1,
-      "userId": 1,
-      "bookId": 1,
-      "review": "review for book one"
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "bookId": 2,
-      "review": "review for book two"
-    },
-    {
       "id": 3,
       "userId": 1,
       "bookId": 3,
-      "review": ""
+      "review": "Review ugh"
+    },
+    {
+      "userId": 1,
+      "bookId": "1",
+      "review": "Come on",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "bookId": 2,
+      "review": "asdf",
+      "id": 4
     }
-    
   ],
   "friends": []
 }
