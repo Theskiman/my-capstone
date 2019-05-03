@@ -79,8 +79,8 @@ export default class SearchedBooks extends Component {
                   </form>
                   {(this.state.searchResults.length > 0) ?  
                   
-                  <div className="mainSearch">
-                      {/* <h1>RESULTS!!!!!!</h1> */}
+                  <div className="mainSearch">    
+                    
                     {
                         this.state.searchResults.map(book => 
                         <form  key={book.id} >

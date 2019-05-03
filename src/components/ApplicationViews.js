@@ -78,6 +78,14 @@ export default class ApplicationViews extends Component {
 
       }
 
+      getAllReviews(){
+        return ReviewManager.getAllReviews()
+        .then(reviews => {
+          return reviews
+         
+        })
+      }
+
       getReview(){
           return ReviewManager.getAllReviews()
           .then(reviews => {
@@ -133,13 +141,14 @@ export default class ApplicationViews extends Component {
         />
 
         <Route
-           path="/review" render={props => {
+           exact path="/review" render={props => {
             if(this.isAuthenticated()) {
             return <ReviewBook {...props}
             getReview={this.getReview}
             postReview={this.postReview}
             reviews={this.state.reviews}
             books={this.state.books}
+            getAllReviews={this.getAllReviews}
             />
           } else {
             return <Redirect to="/login"/>
