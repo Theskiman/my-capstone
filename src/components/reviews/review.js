@@ -18,7 +18,7 @@ export default class ReviewBook extends Component {
         bookId = parseInt(bookId);
         
         ReviewManager.getAllReviews().then(allReviews => {
-        let currentBookReview = allReviews.find(currentBook => currentBook.book.id === bookId)
+        let currentBookReview = allReviews.find(currentBook => currentBook.book.id === bookId && currentBook.book.userId === userId)
         if(currentBookReview !== undefined){
           this.setState({
             "reviews": currentBookReview

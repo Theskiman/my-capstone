@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import "./SearchedBooks.css"
 
+
+
 export default class SearchedBooks extends Component {
     state = {
         searchBook: "",
@@ -43,23 +45,42 @@ export default class SearchedBooks extends Component {
       }) 
         .then(() => console.log(this.state.searchResults))
     }
-      
+    handleSearchGenre = (event) => {
+        console.log("hi")
+        event.preventDefault()
+        this.props.searchByGenre(this.state.searchBook).then(r => {
+          console.log(r)
+          this.setState({
+            searchResults: r.items,
+            buttonClicked: true
+        })
+        
+      }) 
+        .then(() => console.log(this.state.searchResults))
+    }
         
       handleSaveBook = (event) => {
           if (event.target.parentNode.firstChild.nextSibling.nextSibling.getAttribute("src") !== ""){
+            let userId = sessionStorage.getItem("userId")
+            userId = parseInt(userId)
               let newBook = {
+                  
                 title: event.target.parentNode.firstChild.textContent,
                 author: event.target.parentNode.firstChild.nextSibling.textContent,
-                imgUrl: event.target.parentNode.firstChild.nextSibling.nextSibling.getAttribute("src")
+                imgUrl: event.target.parentNode.firstChild.nextSibling.nextSibling.getAttribute("src"),
+                userId: userId
                 }
                 this.props.addBook(newBook).then(() => this.props.history.push("/"))
             }
             else{
                 console.log(event.target.parentNode.firstChild.nextSibling.nextSibling.getAttribute("src"))
+                let userId = sessionStorage.getItem("userId")
+                userId = parseInt(userId)
                let newBook = {
                 title: event.target.parentNode.firstChild.textContent,
                 author: event.target.parentNode.firstChild.nextSibling.textContent,
-                imgUrl: "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158"
+                imgUrl: "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158",
+                userId: sessionStorage.getItem(userId)
             }
         
           this.props.addBook(newBook).then(() => this.props.history.push("/"))
@@ -96,6 +117,12 @@ export default class SearchedBooks extends Component {
                     className="btn btn-primary mt-2"
                     
                     >Find by Author</button>
+                    <button 
+                    type="button"
+                    onClick={this.handleSearchGenre}
+                    className="btn btn-primary mt-2"
+                    
+                    >Find by Genre</button>
                   </form>
                   {(this.state.searchResults.length > 0) ?  
                   
