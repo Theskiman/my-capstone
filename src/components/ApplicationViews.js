@@ -69,6 +69,15 @@ export default class ApplicationViews extends Component {
             return searchedBooks
         })
     }
+    searchByAuthor = (author) => {
+      console.log(author)
+      return BooksManager.searchByAuthor(author)
+      .then(searchedBooks => {
+          console.log(searchedBooks)
+          return searchedBooks
+      })
+  }
+
     postUser = (newUser) => {
         return UserManager.postUser(newUser)
         
@@ -140,6 +149,7 @@ export default class ApplicationViews extends Component {
             if(this.isAuthenticated()) {
             return <SearchBooks {...props}
             searchByTitle={this.searchByTitle}
+            searchByAuthor={this.searchByAuthor}
             addBook={this.addBook}
             books={this.state.books}
             searchedBooks={this.state.searchedBooks}

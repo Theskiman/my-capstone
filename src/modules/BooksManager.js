@@ -10,6 +10,11 @@ export default {
     .then(books => books.json())
     
  },
+ searchByAuthor (author){ 
+    return fetch(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${author}&${key}&maxResults=25&printType=books`)
+   .then(books => books.json())
+   
+},
 
     getAllBooks() {
         return fetch(`${apiURL}/books`)

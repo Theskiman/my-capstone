@@ -16,7 +16,7 @@ export default class SearchedBooks extends Component {
       };
 
 
-      handleSearch = (event) => {
+      handleSearchTitle = (event) => {
           console.log("hi")
           event.preventDefault()
           this.props.searchByTitle(this.state.searchBook).then(r => {
@@ -29,6 +29,20 @@ export default class SearchedBooks extends Component {
         }) 
           .then(() => console.log(this.state.searchResults))
       }
+
+      handleSearchAuthor = (event) => {
+        console.log("hi")
+        event.preventDefault()
+        this.props.searchByAuthor(this.state.searchBook).then(r => {
+          console.log(r)
+          this.setState({
+            searchResults: r.items,
+            buttonClicked: true
+        })
+        
+      }) 
+        .then(() => console.log(this.state.searchResults))
+    }
       
         
       handleSaveBook = (event) => {
@@ -72,10 +86,16 @@ export default class SearchedBooks extends Component {
                     </div>
                     <button 
                     type="button"
-                    onClick={this.handleSearch}
+                    onClick={this.handleSearchTitle}
                     className="btn btn-primary mt-2"
                     
-                    >Find Book</button>
+                    >Find by Title</button>
+                    <button 
+                    type="button"
+                    onClick={this.handleSearchAuthor}
+                    className="btn btn-primary mt-2"
+                    
+                    >Find by Author</button>
                   </form>
                   {(this.state.searchResults.length > 0) ?  
                   

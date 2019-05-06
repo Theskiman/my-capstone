@@ -11,12 +11,6 @@
     {
       "title": " Mistborn ",
       "author": "Brandon Sanderson",
-      "imgUrl": "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158",
-      "id": 1
-    },
-    {
-      "title": " Mistborn ",
-      "author": "Brandon Sanderson",
       "imgUrl": "http://books.google.com/books/content?id=q0pF7ly_vTEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
       "id": 2
     },
@@ -35,21 +29,9 @@
   ],
   "reviews": [
     {
-      "id": 3,
-      "userId": 1,
-      "bookId": 3,
-      "review": "Review ugh"
-    },
-    {
-      "userId": 1,
-      "bookId": "1",
-      "review": "Come on",
-      "id": 1
-    },
-    {
       "userId": 1,
       "bookId": 2,
-      "review": "asdf",
+      "review": "this is a review",
       "id": 4
     }
   ],
