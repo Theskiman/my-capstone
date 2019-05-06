@@ -15,6 +15,11 @@ export default {
    .then(books => books.json())
    
 },
+searchByGenre (genre){ 
+    return fetch(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${genre}&${key}&maxResults=25&printType=books`)
+   .then(books => books.json())
+   
+},
 
     getAllBooks() {
         return fetch(`${apiURL}/books`)

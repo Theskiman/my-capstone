@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import "./BookList.css"
 
+let userId = sessionStorage.getItem("userId")
+userId = parseInt(userId)
+
 export default class PersonalLibrary extends Component {
 
  handleReview(id){
@@ -23,8 +26,8 @@ export default class PersonalLibrary extends Component {
                 <section className="bookList">
                 {
                     this.props.books.map(book => 
-                        
-                    <div key={book.id} className="libDiv">
+                        (book.userId === userId) ?
+                   ( <div key={book.id} className="libDiv">
                         <img src={book.imgUrl} alt="Oops"></img>
                         <div key={book.id} className="card">
                             <div className="card-body">
@@ -45,7 +48,9 @@ export default class PersonalLibrary extends Component {
                             </div>
                         </div>
 
-                    </div>
+                    </div>)
+                    :
+                    (null)
                         )
                 }
                 </section>
