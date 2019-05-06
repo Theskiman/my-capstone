@@ -1,10 +1,23 @@
 import React, {Component} from "react";
 import "./BookList.css"
 
-let userId = sessionStorage.getItem("userId")
-userId = parseInt(userId)
 
 export default class PersonalLibrary extends Component {
+
+state ={
+    userId: ""
+}
+
+componentDidMount() {
+    let userId = sessionStorage.getItem("userId")
+    userId = parseInt(userId)
+    console.log(userId)
+    this.setState({
+        userId: userId
+    })
+
+}
+
 
  handleReview(id){
     sessionStorage.setItem("bookId", id)
@@ -12,6 +25,8 @@ export default class PersonalLibrary extends Component {
  }   
 
     render () {
+        
+
         return (
             <article className="header">
                 <h1 className="yourLib">Your Library</h1>
@@ -26,7 +41,7 @@ export default class PersonalLibrary extends Component {
                 <section className="bookList">
                 {
                     this.props.books.map(book => 
-                        (book.userId === userId) ?
+                        ( book.userId === this.state.userId) ?
                    ( <div key={book.id} className="libDiv">
                         <img src={book.imgUrl} alt="Oops"></img>
                         <div key={book.id} className="card">

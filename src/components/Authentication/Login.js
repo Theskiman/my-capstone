@@ -26,6 +26,7 @@ export default class Login extends Component {
                 && element.password.toLowerCase() === this.state.password.toLowerCase())
                 if(loginUser) {
                     sessionStorage.setItem("userId", loginUser.id)
+                    
                     this.props.history.push("/")
                 } else {
                     window.alert("Login information not found. Please try again or register an account.")

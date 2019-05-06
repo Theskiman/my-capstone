@@ -22,16 +22,14 @@ export default class ApplicationViews extends Component {
     }
     componentDidMount() {
         console.log("mount")
-        BooksManager.getAllBooks().then(allBooks => {
-            this.setState({
-                books: allBooks
-            })
-        })
-        UserManager.getAllUsers().then(users => {
-            this.setState({
-              users: users
-            })
-          })
+
+        let newState = {}
+        BooksManager.getAllBooks()
+        .then(allBooks => newState.books = allBooks)
+        .then(() => UserManager.getAllUsers())
+        .then(users => newState.users = users)
+        .then(() => this.setState(newState))
+        
     }
 
     editBook = (editedBook) => {
@@ -132,7 +130,7 @@ export default class ApplicationViews extends Component {
             <React.Fragment>
                 <Route
                     exact path="/login" render={props =>{
-                        return <Login users={this.state.users} {...props} postUser={this.postUser} getAllUsers={this.getAllUsers} />
+                        return <Login users={this.state.users}  {...props} postUser={this.postUser} getAllUsers={this.getAllUsers} />
                     }}
                     />
                     <Route 
