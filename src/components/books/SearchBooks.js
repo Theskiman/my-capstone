@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./SearchedBooks.css"
 
 export default class SearchedBooks extends Component {
     state = {
@@ -15,7 +16,7 @@ export default class SearchedBooks extends Component {
       };
 
 
-      handleSearch = (event) => {
+      handleSearchTitle = (event) => {
           console.log("hi")
           event.preventDefault()
           this.props.searchByTitle(this.state.searchBook).then(r => {
@@ -28,21 +29,37 @@ export default class SearchedBooks extends Component {
         }) 
           .then(() => console.log(this.state.searchResults))
       }
-    
+
+      handleSearchAuthor = (event) => {
+        console.log("hi")
+        event.preventDefault()
+        this.props.searchByAuthor(this.state.searchBook).then(r => {
+          console.log(r)
+          this.setState({
+            searchResults: r.items,
+            buttonClicked: true
+        })
+        
+      }) 
+        .then(() => console.log(this.state.searchResults))
+    }
+      
         
       handleSaveBook = (event) => {
-        if (event.target.parentNode.firstChild.nextSibling.nextSibling.imageLinks === undefined){
-            let newBook = {
+          if (event.target.parentNode.firstChild.nextSibling.nextSibling.getAttribute("src") !== ""){
+              let newBook = {
+                title: event.target.parentNode.firstChild.textContent,
+                author: event.target.parentNode.firstChild.nextSibling.textContent,
+                imgUrl: event.target.parentNode.firstChild.nextSibling.nextSibling.getAttribute("src")
+                }
+                this.props.addBook(newBook).then(() => this.props.history.push("/"))
+            }
+            else{
+                console.log(event.target.parentNode.firstChild.nextSibling.nextSibling.getAttribute("src"))
+               let newBook = {
                 title: event.target.parentNode.firstChild.textContent,
                 author: event.target.parentNode.firstChild.nextSibling.textContent,
                 imgUrl: "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158"
-          }
-        }
-        else{
-               let newBook = {
-                title: event.target.parentNode.firstChild.textContent,
-            author: event.target.parentNode.firstChild.nextSibling.textContent,
-            imgUrl: event.target.parentNode.firstChild.nextSibling.nextSibling.imageLinks.thumbnail
             }
         
           this.props.addBook(newBook).then(() => this.props.history.push("/"))
@@ -69,22 +86,38 @@ export default class SearchedBooks extends Component {
                     </div>
                     <button 
                     type="button"
-                    onClick={this.handleSearch}
+                    onClick={this.handleSearchTitle}
                     className="btn btn-primary mt-2"
                     
-                    >Find Book</button>
+                    >Find by Title</button>
+                    <button 
+                    type="button"
+                    onClick={this.handleSearchAuthor}
+                    className="btn btn-primary mt-2"
+                    
+                    >Find by Author</button>
                   </form>
                   {(this.state.searchResults.length > 0) ?  
                   
-                  <div>
-                      <h1>RESULTS!!!!!!</h1>
+                  <div className="mainSearch">    
+                    
                     {
                         this.state.searchResults.map(book => 
                         <form  key={book.id} >
-                            <div className="card">
+                            <div className="searchedDiv">
                                 <p> {book.volumeInfo.title} </p>
                                 <p>{book.volumeInfo.authors}</p> 
+                                {(book.volumeInfo.imageLinks !== undefined) ?
+                                
                                 <img src={book.volumeInfo.imageLinks.thumbnail} alt="oops"></img>
+
+                                
+
+                                :
+
+                                <img src="https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158" alt="oops"></img>
+                                }
+                                
                                 <button 
                                     type="button"
                                     onClick={this.handleSaveBook}
