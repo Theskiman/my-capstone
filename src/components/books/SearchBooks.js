@@ -83,7 +83,7 @@ export default class SearchedBooks extends Component {
                 userId: sessionStorage.getItem(userId)
             }
         
-          this.props.addBook(newBook).then(() => this.props.history.push("/"))
+                 this.props.addBook(newBook).then(() => this.props.history.push("/"))
       }}
 
 
@@ -159,7 +159,7 @@ export default class SearchedBooks extends Component {
                   </div>
                   :
 
-                   <h1>Oops</h1>
+                   null
                   }
               </React.Fragment>
           )

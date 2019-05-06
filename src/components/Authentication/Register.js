@@ -48,7 +48,7 @@ export default class RegisterForm extends Component {
                     <div>
                         <label htmlFor="password">Password</label>
                         <input
-                            type="text"
+                            type="password"
                             required className="form-control"
                             onChange={this.handleFieldChange}
                             id="password"/>

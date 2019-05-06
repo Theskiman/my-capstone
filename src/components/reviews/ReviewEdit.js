@@ -54,7 +54,7 @@ export default class ReviewEdit extends Component {
             <React.Fragment>
                     <div>
                         <form>
-                        <label>Edit Your Review!!</label>
+                        <label>Change Your Review!!</label>
                         <input
                             type="text"
                             className="form-control"
