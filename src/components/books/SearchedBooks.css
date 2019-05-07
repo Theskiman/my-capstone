@@ -5,7 +5,7 @@
     height: 290px;
     padding: 25px;
     justify-content: space-evenly;
-
+    overflow: scroll;
 }
 
 .mainSearch {
