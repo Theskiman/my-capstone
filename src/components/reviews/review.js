@@ -13,23 +13,26 @@ export default class ReviewBook extends Component {
         newReview: ""
     }
 
-    componentDidMount() {
+    componentDidMount = async() => {
         let bookId = sessionStorage.getItem("bookId");
         bookId = parseInt(bookId);
         
-        ReviewManager.getAllReviews().then(allReviews => {
-        let currentBookReview = allReviews.find(currentBook => currentBook.book.id === bookId && currentBook.book.userId === userId)
+        const promise = await ReviewManager.getAllReviews()
+        const taco = await promise
+
+        console.log(taco)
+        let currentBookReview = taco.find(currentBook => currentBook.book.id === bookId && currentBook.book.userId === userId)
         if(currentBookReview !== undefined){
           this.setState({
-            "reviews": currentBookReview
+            "reviews": await currentBookReview
           })}
           else{
               this.setState({
                   "reviews": ""
               })
           }
-        })
-    }
+        }
+    
     handleFieldChange = evt => {
         const stateToChange = {};
         stateToChange[evt.target.id] = evt.target.value;
@@ -79,7 +82,7 @@ bookId = parseInt(bookId);
                               <img src={this.state.reviews.book && this.state.reviews.book.imgUrl} alt="oops"></img>
                               <h1>{this.state.reviews.book && this.state.reviews.book.title}</h1>
                               <h2>{this.state.reviews.book && this.state.reviews.book.author}</h2>
-                              {/* <p>{this.state.reviews.id}</p> */}
+                              <p>{this.state.reviews.id}</p>
                               <p className="trueReview">{this.state.reviews.review}</p>
                                 
                               <button 

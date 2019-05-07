@@ -17,16 +17,21 @@
       "email": "kristen@gmail.com",
       "password": "1234",
       "id": 3
+    },
+    {
+      "name": "amber@gmail.com",
+      "email": "1234",
+      "password": "fun",
+      "id": 4
+    },
+    {
+      "name": "amber",
+      "email": "amber@gmail.com",
+      "password": "1234",
+      "id": 5
     }
   ],
   "books": [
-    {
-      "title": " Peter Pan and Wendy ",
-      "author": "J. M. Barrie",
-      "imgUrl": "http://books.google.com/books/content?id=hBuind5qZakC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-      "userId": 1,
-      "id": 1
-    },
     {
       "title": " The Dragon Reborn ",
       "author": "Robert Jordan",
@@ -35,25 +40,11 @@
       "id": 3
     },
     {
-      "title": " Mistborn ",
-      "author": "Brandon Sanderson",
-      "imgUrl": "http://books.google.com/books/content?id=q0pF7ly_vTEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-      "userId": 1,
-      "id": 4
-    },
-    {
       "title": " Mistborn Trilogy ",
       "author": "Brandon Sanderson",
       "imgUrl": "http://books.google.com/books/content?id=F8u01NaEZU0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
       "userId": 1,
       "id": 5
-    },
-    {
-      "title": " Mistborn: The Wax and Wayne Series ",
-      "author": "Brandon Sanderson",
-      "imgUrl": "http://books.google.com/books/content?id=P4VCDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-      "userId": 1,
-      "id": 6
     },
     {
       "title": " Words of Radiance ",
@@ -70,13 +61,6 @@
       "id": 8
     }
   ],
-  "reviews": [
-    {
-      "userId": 1,
-      "bookId": 2,
-      "review": "newest review",
-      "id": 1
-    }
-  ],
+  "reviews": [],
   "friends": []
 }

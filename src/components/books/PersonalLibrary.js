@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./BookList.css"
-
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button, Col, Row } from 'reactstrap';
 
 export default class PersonalLibrary extends Component {
 
@@ -42,28 +43,37 @@ componentDidMount() {
                 {
                     this.props.books.map(book => 
                         ( book.userId === this.state.userId) ?
-                   ( <div key={book.id} className="libDiv">
-                        <img src={book.imgUrl} alt="Oops"></img>
-                        <div key={book.id} className="card">
-                            <div className="card-body">
-                            <h3 className="card-title">
-                            <p>{book.title}</p>
-                            <p>{book.author}</p>
-                            <p>{book.summary}</p>
+                   ( 
+                <div>
+                  <Row key={book.id}> 
+                   <Col sm="6">
+                     <div className="libDiv">
+                        <Card className="ugh">
+                            <CardBody>
+                                
+                                <CardTitle>{book.title}</CardTitle>
+                                <CardSubtitle>{book.author}</CardSubtitle>
+                                <CardText>{book.summary}</CardText>
+                                <CardImg className="bookImage" src={book.imgUrl} alt="Oops"/>
                             
-                            <button
-                                    onClick={() => this.props.deleteBook(book.id)}
-                                    className="card-delete">Delete</button>
-                            <button 
-                                    type="button"
-                                    onClick={()=>this.handleReview(book.id)}
-                                    
-                                    className="review-button">Review</button>
-                            </h3>
-                            </div>
+                            
+                        </CardBody>
+                        </Card>
                         </div>
-
-                    </div>)
+                    </Col>
+                   </Row> 
+                   <Button
+                   color="danger"
+                   onClick={() => this.props.deleteBook(book.id)}
+                   className="card-delete">Delete</Button>
+           <Button 
+                   type="button"
+                   color="info"
+                   onClick={()=>this.handleReview(book.id)}
+                   
+                   className="review-button">Review</Button>
+        </div>
+                    )
                     :
                     (null)
                         )

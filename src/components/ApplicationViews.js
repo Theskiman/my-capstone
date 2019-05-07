@@ -94,21 +94,6 @@ export default class ApplicationViews extends Component {
 
       }
 
-      getAllReviews(){
-        return ReviewManager.getAllReviews()
-        .then(reviews => {
-          return reviews
-         
-        })
-      }
-
-      getReview(){
-          return ReviewManager.getAllReviews()
-          .then(reviews => {
-              return reviews
-          })
-      }
-
       editReview = (editedReview, id) => {
         console.log(editedReview)
           return ReviewManager.editReview(editedReview, id)
