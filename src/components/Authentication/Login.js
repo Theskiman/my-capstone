@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
 
 export default class Login extends Component {
-
+// this is state
 
     state = {
         email: "",
