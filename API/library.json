@@ -59,6 +59,14 @@
       "imgUrl": "http://books.google.com/books/content?id=q0pF7ly_vTEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
       "userId": 2,
       "id": 8
+    },
+    {
+      "title": "Brandon Sanderson",
+      "author": "From the author of the acclaimed \"Elantris\" comes the first novel in his Mistborn trilogy--a story which dares to turn a genre on its head by asking a simple question: What if the hero of prophecy fails? Reissue.",
+      "summary": "From the author of the acclaimed \"Elantris\" comes the first novel in his Mistborn trilogy--a story which dares to turn a genre on its head by asking a simple question: What if the hero of prophecy fails? Reissue.",
+      "imgUrl": "http://books.google.com/books/content?id=q0pF7ly_vTEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "userId": 1,
+      "id": 9
     }
   ],
   "reviews": [],
