@@ -62,7 +62,7 @@ componentDidMount() {
                         </div>
                     </Col>
                    </Row> 
-                   <Button
+                   <Button 
                    color="danger"
                    onClick={() => this.props.deleteBook(book.id)}
                    className="card-delete">Delete</Button>
