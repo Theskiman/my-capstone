@@ -1,13 +1,23 @@
 import React, {Component} from "react";
 import "./BookList.css"
 import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Col, Row } from 'reactstrap';
+    CardTitle, CardSubtitle, Button, Col, Row, Collapse } from 'reactstrap';
 
 export default class PersonalLibrary extends Component {
 
 state ={
     userId: ""
 }
+
+constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = { collapse: false };
+  }
+
+  toggle() {
+    this.setState(state => ({ collapse: !state.collapse }));
+  }
 
 componentDidMount() {
     let userId = sessionStorage.getItem("userId")
@@ -20,10 +30,13 @@ componentDidMount() {
 }
 
 
+
  handleReview(id){
     sessionStorage.setItem("bookId", id)
     this.props.history.push("/review")
  }   
+
+ 
 
     render () {
         
@@ -44,7 +57,7 @@ componentDidMount() {
                     this.props.books.map(book => 
                         ( book.userId === this.state.userId) ?
                    ( 
-                <div>
+                <div key={book.id}>
                   <Row key={book.id}> 
                    <Col sm="6">
                      <div className="libDiv">
@@ -53,10 +66,17 @@ componentDidMount() {
                                 
                                 <CardTitle>{book.title}</CardTitle>
                                 <CardSubtitle>{book.author}</CardSubtitle>
-                                <CardText>{book.summary}</CardText>
+                                
                                 <CardImg className="bookImage" src={book.imgUrl} alt="Oops"/>
                             
-                            
+                                <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
+        <Collapse isOpen={this.state.collapse}>
+          <Card>
+            <CardBody>
+            {book.summary}
+            </CardBody>
+          </Card>
+        </Collapse>
                         </CardBody>
                         </Card>
                         </div>
