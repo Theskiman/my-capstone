@@ -65,8 +65,8 @@ export default class SearchedBooks extends Component {
             userId = parseInt(userId)
               let newBook = {
                   
-                title: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
-                author: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
+                title: event.target.parentNode.firstChild.firstChild.textContent,
+                author: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
                 summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
                 imgUrl: event.target.parentNode.firstChild.nextSibling.getAttribute("src"),
                 userId: userId
