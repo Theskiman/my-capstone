@@ -67,7 +67,7 @@ export default class SearchedBooks extends Component {
                   
                 title: event.target.parentNode.firstChild.firstChild.textContent,
                 author: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
-                summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
+                summary: event.target.parentNode.firstChild.firstChild.textContent,
                 imgUrl: event.target.parentNode.firstChild.nextSibling.getAttribute("src"),
                 userId: userId
                 }
