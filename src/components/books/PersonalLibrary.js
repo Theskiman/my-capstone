@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./BookList.css"
 import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Col, Row, Collapse } from 'reactstrap';
+    CardTitle, CardSubtitle, Button, Col, Row, UncontrolledCollapse, } from 'reactstrap';
 
 export default class PersonalLibrary extends Component {
 
@@ -80,14 +80,14 @@ componentDidMount() {
                    
                    className="review-button">Review</Button>
                         </CardBody>
-                                <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
-        <Collapse isOpen={this.state.collapse}>
+                                <Button color="primary" id={`toggle${book.id}`} style={{ marginBottom: '1rem' }}>Toggle</Button>
+        <UncontrolledCollapse toggler={`#toggle${book.id}`}>
           <Card>
             <CardBody className="summary">
             {book.summary}
             </CardBody>
           </Card>
-        </Collapse>
+        </UncontrolledCollapse>
                         </Card>
                         </div>
                     </Col>
