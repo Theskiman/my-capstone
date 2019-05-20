@@ -1,0 +1,41 @@
+.background-image{
+    background: linear-gradient(rgba(0,0,0,0.5)),url(../../Images/capstone-background.png) no-repeat;
+    display: table;
+    position: relative;
+    width: 100vw;
+    min-height: 700px;
+ 
+    background-size: cover;
+    background-attachment: fixed;
+ }
+
+ .addColor{
+     color: white;
+     text-align: center;
+ }
+
+ .addReview{
+display: flex;
+justify-content: center;
+flex-direction: column;
+font-size: 30px;
+
+ }
+
+ #newReview{
+     max-width: 650px;
+
+ }
+
+ .flexReview{
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ .saveReview{
+    margin: auto;
+    width: 40%;
+
+ }
