@@ -67,7 +67,7 @@ export default class SearchedBooks extends Component {
                   
                 title: event.target.parentNode.firstChild.firstChild.textContent,
                 author: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
-                summary: event.target.parentNode.firstChild.firstChild.textContent,
+                summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
                 imgUrl: event.target.parentNode.firstChild.nextSibling.getAttribute("src"),
                 userId: userId
                 }
@@ -78,9 +78,9 @@ export default class SearchedBooks extends Component {
                 let userId = sessionStorage.getItem("userId")
                 userId = parseInt(userId)
                let newBook = {
-                title: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
-                author: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
-                summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.nextSibling.textContent,
+                title: event.target.parentNode.firstChild.firstChild.textContent,
+                author: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
+                summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
                 imgUrl: "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158",
                 userId: sessionStorage.getItem(userId)
             }
