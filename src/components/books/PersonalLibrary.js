@@ -62,7 +62,7 @@ componentDidMount() {
                   <Row key={book.id}> 
                    <Col sm="6">
                      <div className="libDiv">
-                        <Card className="ugh">
+                        <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }} className="ugh">
                             <CardBody className="ugh2">
                                 
                                 <CardTitle className="bookTitle">{book.title}</CardTitle>
@@ -72,7 +72,7 @@ componentDidMount() {
                                 <Button 
                    color="danger"
                    onClick={() => this.props.deleteBook(book.id)}
-                   className="card-delete">Delete</Button>
+                   className="card-delete mt-2">Delete</Button>
            <Button 
                    type="button"
                    color="info"
