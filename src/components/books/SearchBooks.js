@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./SearchedBooks.css"
-
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button, Col, Row, UncontrolledCollapse, } from 'reactstrap';
 
 
 export default class SearchedBooks extends Component {
@@ -94,6 +95,7 @@ export default class SearchedBooks extends Component {
           console.log(this.state.searchResults)
           return(
               <React.Fragment>
+                <div className="background-image"> 
                   <form
                                     className="bookSearch">
                     <div className="form-group">
@@ -134,22 +136,25 @@ export default class SearchedBooks extends Component {
                         this.state.searchResults.map(book => 
                         <form  key={book.id} >
                           <div> 
-                            <div className="searchedDiv">
+                            
+                            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }} className="searchedDiv">
 
-                                <p> {book.volumeInfo.title} </p>
-                                <p>{book.volumeInfo.authors}</p>
-                                <p>{book.volumeInfo.description}</p>
-                            </div>
                                 {(book.volumeInfo.imageLinks !== undefined) ?
                             
-                                <img src={book.volumeInfo.imageLinks.thumbnail} alt="oops"></img>
-
-                                
-
-                                :
-
-                                <img src="https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158" alt="oops"></img>
-                                }
+                            <img src={book.volumeInfo.imageLinks.thumbnail} alt="oops"></img>
+                            
+                            
+                            
+                            :
+                            
+                            <img src="https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158" alt="oops"></img>
+                          }
+                          <p> {book.volumeInfo.title} </p>
+                          <p>{book.volumeInfo.authors}</p>
+                          
+                          <p className="descriptionOverflow">{book.volumeInfo.description}</p>
+                          </Card>
+                          
                                 
                                 <button 
                                     type="button"
@@ -167,6 +172,7 @@ export default class SearchedBooks extends Component {
 
                    null
                   }
+                  </div>
               </React.Fragment>
           )
       }
