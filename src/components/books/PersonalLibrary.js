@@ -62,8 +62,8 @@ componentDidMount() {
                   <Row key={book.id}> 
                    <Col sm="6">
                      <div className="libDiv">
-                        <Card className="ugh">
-                            <CardBody>
+                        <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }} className="ugh">
+                            <CardBody className="ugh2">
                                 
                                 <CardTitle className="bookTitle">{book.title}</CardTitle>
                                 <CardSubtitle className="bookAuthor">{book.author}</CardSubtitle>
@@ -72,7 +72,7 @@ componentDidMount() {
                                 <Button 
                    color="danger"
                    onClick={() => this.props.deleteBook(book.id)}
-                   className="card-delete">Delete</Button>
+                   className="card-delete mt-2">Delete</Button>
            <Button 
                    type="button"
                    color="info"
@@ -82,7 +82,7 @@ componentDidMount() {
                         </CardBody>
                                 <Button color="primary" id={`toggle${book.id}`} style={{ marginBottom: '1rem' }}>Toggle</Button>
         <UncontrolledCollapse toggler={`#toggle${book.id}`}>
-          <Card>
+          <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
             <CardBody className="summary">
             {book.summary}
             </CardBody>
