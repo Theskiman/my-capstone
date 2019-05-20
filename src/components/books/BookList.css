@@ -65,6 +65,7 @@
    flex-direction: row;
    justify-content: center;
    flex-wrap: wrap;
+   font-family: "Times New Roman", Times, serif;
 }
 
 .ugh {
@@ -74,9 +75,7 @@
 .yourLib {
    text-align: center;
 }
-.header {
-   margin-top: 50px;
-   }
+
 
    .searchButton{
        display: flex;
@@ -86,7 +85,31 @@
        margin-bottom: 50px;
     }
 
-.header{
-   background-image: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjkiuCwqKriAhXBnOAKHV6aAUkQjRx6BAgBEAU&url=https%3A%2F%2Fwww.scottlib.org%2F1153%2FLocations-Hours&psig=AOvVaw2vcT-JI2-SIb548vKqZnCe&ust=1558448650937362";
+.background-image{
+   background: linear-gradient(rgba(0,0,0,0.5)),url(../../Images/capstone-background.png) no-repeat;
+   display: table;
+   position: relative;
+   width: 100vw;
+   min-height: 700px;
 
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+.bookTitle{
+   font-family: "Times New Roman", Times, serif;
+   font-size: 25px;
+   text-align: center;
+   
+}
+
+.bookAuthor{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 15px;
+   text-align: center;
+}
+
+.summary{
+   font-family: "Times New Roman", Times, serif;
+   font-size: 20px;
 }
