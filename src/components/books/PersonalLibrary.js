@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { ImageBackground } from 'react-native';
 import "./BookList.css"
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col, Row, Collapse } from 'reactstrap';
@@ -43,6 +44,9 @@ componentDidMount() {
 
         return (
             <article className="header">
+            <ImageBackground source={require("../../Images/capstone-background.png")}
+            style={{width: 400, height: 400}}
+            />
                 <h1 className="yourLib">Your Library</h1>
                 <div className="searchButton">
                     <button type="button"
