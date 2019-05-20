@@ -8,22 +8,7 @@
     }
   ],
   "books": [
-    {
-      "title": " The Name of the Wind ",
-      "author": "Patrick Rothfuss",
-      "summary": " The Name of the Wind ",
-      "imgUrl": "http://books.google.com/books/content?id=BcG2dVRXKukC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "title": " Mistborn ",
-      "author": "Brandon Sanderson",
-      "summary": " Mistborn ",
-      "imgUrl": "http://books.google.com/books/content?id=t_ZYYXZq4RgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-      "userId": 1,
-      "id": 2
-    }
+    
   ],
   "reviews": [],
   "friends": []
