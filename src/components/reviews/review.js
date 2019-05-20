@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ReviewManager from "../../modules/ReviewManager"
-
+import "./review.css"
 
 let userId = sessionStorage.getItem("userId")
 userId = parseInt(userId)
@@ -78,7 +78,7 @@ bookId = parseInt(bookId);
                           
                               (this.state.reviews.review !== "" && this.state.reviews !== "")  ?
                         (<form> 
-                             
+                             <div className="background-image">
                               <img src={this.state.reviews.book && this.state.reviews.book.imgUrl} alt="oops"></img>
                               <h1>{this.state.reviews.book && this.state.reviews.book.title}</h1>
                               <h2>{this.state.reviews.book && this.state.reviews.book.author}</h2>
@@ -96,31 +96,33 @@ bookId = parseInt(bookId);
                                 onClick={() => this.props.history.push("/review/edit")}
                                 className="reviewDelete"
                                 >Change Review</button>
-                                
+                                </div>
                              </form>)
                         
                               :
-                       (<div>       
+                       (<div>  
+                           <div className="background-image">     
                         <form
                                     className="addReview">
-                    <div className="form-group">
-                        <label>Add Your Review!!</label>
+                    <div className="form-group flexReview">
+                        <label className="addColor">Add Your Review!!</label>
                         <input
                             type="text"
                             className="form-control"
                             onChange={this.handleFieldChange}
                            required id="newReview"
                            
-                            placeholder="Add Your Review"
+                            
                             />
                     </div>
                     <button 
                     type="button"
                     onClick={this.handleAddReview}
-                    className="btn btn-primary mt-2"
+                    className="btn btn-primary mt-2 saveReview"
                     
                     >Save Review!</button>
                   </form>
+                  </div>
                 </div>)
                           
                     
