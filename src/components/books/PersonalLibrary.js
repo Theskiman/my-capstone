@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+
 import "./BookList.css"
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col, Row, Collapse } from 'reactstrap';
@@ -43,6 +44,7 @@ componentDidMount() {
 
         return (
             <article className="header">
+            <div className="background-image">
                 <h1 className="yourLib">Your Library</h1>
                 <div className="searchButton">
                     <button type="button"
@@ -64,25 +66,11 @@ componentDidMount() {
                         <Card className="ugh">
                             <CardBody>
                                 
-                                <CardTitle>{book.title}</CardTitle>
-                                <CardSubtitle>{book.author}</CardSubtitle>
+                                <CardTitle className="bookTitle">{book.title}</CardTitle>
+                                <CardSubtitle className="bookAuthor">{book.author}</CardSubtitle>
                                 
                                 <CardImg className="bookImage" src={book.imgUrl} alt="Oops"/>
-                            
-                                <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
-        <Collapse isOpen={this.state.collapse}>
-          <Card>
-            <CardBody>
-            {book.summary}
-            </CardBody>
-          </Card>
-        </Collapse>
-                        </CardBody>
-                        </Card>
-                        </div>
-                    </Col>
-                   </Row> 
-                   <Button
+                                <Button 
                    color="danger"
                    onClick={() => this.props.deleteBook(book.id)}
                    className="card-delete">Delete</Button>
@@ -92,6 +80,20 @@ componentDidMount() {
                    onClick={()=>this.handleReview(book.id)}
                    
                    className="review-button">Review</Button>
+                        </CardBody>
+                                <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
+        <Collapse isOpen={this.state.collapse}>
+          <Card>
+            <CardBody className="summary">
+            {book.summary}
+            </CardBody>
+          </Card>
+        </Collapse>
+                        </Card>
+                        </div>
+                    </Col>
+                   </Row> 
+                   
         </div>
                     )
                     :
@@ -99,6 +101,7 @@ componentDidMount() {
                         )
                 }
                 </section>
+                </div>
             </article>
         )
     }

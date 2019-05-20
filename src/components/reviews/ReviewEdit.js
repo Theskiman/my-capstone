@@ -60,6 +60,7 @@ export default class ReviewEdit extends Component {
                             className="form-control"
                             onChange={this.handleFieldChange}
                            required 
+                           value={this.state.review}
                            id="review"
 
                             // value={this.state.review}

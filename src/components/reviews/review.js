@@ -82,7 +82,7 @@ bookId = parseInt(bookId);
                               <img src={this.state.reviews.book && this.state.reviews.book.imgUrl} alt="oops"></img>
                               <h1>{this.state.reviews.book && this.state.reviews.book.title}</h1>
                               <h2>{this.state.reviews.book && this.state.reviews.book.author}</h2>
-                              <p>{this.state.reviews.id}</p>
+                              {/* <p>{this.state.reviews.id}</p> */}
                               <p className="trueReview">{this.state.reviews.review}</p>
                                 
                               <button 

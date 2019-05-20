@@ -14,9 +14,9 @@ class NavBar extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to="/search">Find Books</Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link className="nav-link" to="/friends">Friends</Link>
-                    </li>
+                    </li> */}
                     
                 </ul>
             </nav>
