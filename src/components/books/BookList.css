@@ -81,6 +81,7 @@
 }
 .yourLib {
    text-align: center;
+   color: white;
 }
 
 
@@ -119,7 +120,7 @@
 .summary{
    max-height: 300px;
    overflow: scroll;
-   font-family: "Times New Roman", Times, serif;
+   font-family: "American Typewriter", serif;
    font-size: 20px;
 }
 
