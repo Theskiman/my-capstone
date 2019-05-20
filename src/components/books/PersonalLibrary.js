@@ -82,7 +82,7 @@ componentDidMount() {
                         </CardBody>
                                 <Button color="primary" id={`toggle${book.id}`} style={{ marginBottom: '1rem' }}>Toggle</Button>
         <UncontrolledCollapse toggler={`#toggle${book.id}`}>
-          <Card>
+          <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
             <CardBody className="summary">
             {book.summary}
             </CardBody>
