@@ -12,17 +12,40 @@ bookId = parseInt(bookId);
 export default class ReviewBook extends Component {
     state = {
         reviews: {},
-        newReview: ""
+        newReview: "",
+        books: [],
+        book: []
     }
 
+    static getDerivedStateFromProps(nextState,state,) {
+        let bookId = sessionStorage.getItem("bookId");
+        bookId = parseInt(bookId);
+        // debugger
+        if(nextState.book !== state.book){
+           let bookPicture = nextState.books.filter(book => 
+              book.id === bookId
+                )
+                console.log(bookPicture)
+                console.log(bookId)
+
+                return{book: bookPicture}
+        }
+        else{
+            return null
+        }
+        
+    }
+
+
     componentDidMount = async() => {
+        
         let bookId = sessionStorage.getItem("bookId");
         bookId = parseInt(bookId);
         
         const promise = await ReviewManager.getAllReviews()
         const taco = await promise
 
-        console.log(taco)
+      
         let currentBookReview = taco.find(currentBook => currentBook.book.id === bookId && currentBook.book.userId === userId)
         if(currentBookReview !== undefined){
           this.setState({
@@ -126,14 +149,13 @@ bookId = parseInt(bookId);
                     {
                         
 
-                        this.props.books.map(book => 
-                            (book.id === bookId) ?
+                        this.state.book.map(book => 
+                            
                             (
                                 <CardImg className="bookImage" src={book.imgUrl} alt="Oops" />
                             )
-                            :
-                    (null)
-                         ) }
+                                                     ) 
+                                                     }
                   </form>
                   </div>
                 </div>)
