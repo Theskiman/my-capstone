@@ -17,11 +17,17 @@ export default class ReviewBook extends Component {
         book: []
     }
 
-    static getDerivedStateFromProps(nextProps,state,) {
-        if(nextProps.books !== state.books){
-           let bookPicture = nextProps.books.filter(book => 
+    static getDerivedStateFromProps(nextState,state,) {
+        let bookId = sessionStorage.getItem("bookId");
+        bookId = parseInt(bookId);
+        // debugger
+        if(nextState.book !== state.book){
+           let bookPicture = nextState.books.filter(book => 
               book.id === bookId
                 )
+                console.log(bookPicture)
+                console.log(bookId)
+
                 return{book: bookPicture}
         }
         else{
@@ -30,16 +36,16 @@ export default class ReviewBook extends Component {
         
     }
 
-    
 
     componentDidMount = async() => {
+        
         let bookId = sessionStorage.getItem("bookId");
         bookId = parseInt(bookId);
         
         const promise = await ReviewManager.getAllReviews()
         const taco = await promise
 
-        console.log(taco)
+      
         let currentBookReview = taco.find(currentBook => currentBook.book.id === bookId && currentBook.book.userId === userId)
         if(currentBookReview !== undefined){
           this.setState({
