@@ -39,3 +39,10 @@ font-size: 30px;
     width: 40%;
 
  }
+
+ .bookImage{
+     margin: auto;
+     min-width: 200px;
+     min-height: 300px;
+     margin-top: 20px;
+ }

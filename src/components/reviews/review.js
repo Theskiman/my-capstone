@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import ReviewManager from "../../modules/ReviewManager"
 import "./review.css"
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button, Col, Row, UncontrolledCollapse, } from 'reactstrap';
 
 let userId = sessionStorage.getItem("userId")
 userId = parseInt(userId)
@@ -121,6 +123,17 @@ bookId = parseInt(bookId);
                     className="btn btn-primary mt-2 saveReview"
                     
                     >Save Review!</button>
+                    {
+                        
+
+                        this.props.books.map(book => 
+                            (book.id === bookId) ?
+                            (
+                                <CardImg className="bookImage" src={book.imgUrl} alt="Oops" />
+                            )
+                            :
+                    (null)
+                         ) }
                   </form>
                   </div>
                 </div>)
