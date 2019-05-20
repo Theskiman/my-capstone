@@ -12,8 +12,25 @@ bookId = parseInt(bookId);
 export default class ReviewBook extends Component {
     state = {
         reviews: {},
-        newReview: ""
+        newReview: "",
+        books: [],
+        book: []
     }
+
+    static getDerivedStateFromProps(nextProps,state,) {
+        if(nextProps.books !== state.books){
+           let bookPicture = nextProps.books.filter(book => 
+              book.id === bookId
+                )
+                return{book: bookPicture}
+        }
+        else{
+            return null
+        }
+        
+    }
+
+    
 
     componentDidMount = async() => {
         let bookId = sessionStorage.getItem("bookId");
@@ -126,14 +143,13 @@ bookId = parseInt(bookId);
                     {
                         
 
-                        this.props.books.map(book => 
-                            (book.id === bookId) ?
+                        this.state.book.map(book => 
+                            
                             (
                                 <CardImg className="bookImage" src={book.imgUrl} alt="Oops" />
                             )
-                            :
-                    (null)
-                         ) }
+                                                     ) 
+                                                     }
                   </form>
                   </div>
                 </div>)
