@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-
 import "./BookList.css"
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Col, Row, Collapse } from 'reactstrap';
