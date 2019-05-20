@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import ReviewManager from "../../modules/ReviewManager"
-
-
+import "./ReviewEdit.css"
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button, Col, Row, UncontrolledCollapse, } from 'reactstrap';
 
 export default class ReviewEdit extends Component {
 
@@ -52,9 +53,10 @@ export default class ReviewEdit extends Component {
         console.log(this.state.id)
         return(
             <React.Fragment>
-                    <div>
+                    <div className="background-image">
+                        <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }} className="reviewCard">
                         <form>
-                        <label>Change Your Review!!</label>
+                        <label className="editLabel">Change Your Review!!</label>
                         <input
                             type="text"
                             className="form-control"
@@ -65,13 +67,14 @@ export default class ReviewEdit extends Component {
 
                             // value={this.state.review}
                             />
-                            <button 
-                                type="button"
+                            <Button 
+                                color="info"
                                 onClick={this.handleEditReview}
                                 id={this.state.id}
-                                className="editReviewButton"
-                                >Update</button>
+                                className="editReviewButton card-delete mt-2"
+                                >Update</Button>
                         </form>
+                        </Card>
                     </div>
 
             </React.Fragment>

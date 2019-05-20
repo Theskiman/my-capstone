@@ -102,27 +102,34 @@ bookId = parseInt(bookId);
                     
                           
                               (this.state.reviews.review !== "" && this.state.reviews !== "")  ?
-                        (<form> 
+                        (
+                        <div className="centerReview">
+                        
                              <div className="background-image">
-                              <img src={this.state.reviews.book && this.state.reviews.book.imgUrl} alt="oops"></img>
+                        <form> 
+                        <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }} className="reviewCard">
                               <h1>{this.state.reviews.book && this.state.reviews.book.title}</h1>
-                              <h2>{this.state.reviews.book && this.state.reviews.book.author}</h2>
+                              <h3>{this.state.reviews.book && this.state.reviews.book.author}</h3>
                               {/* <p>{this.state.reviews.id}</p> */}
                               <p className="trueReview">{this.state.reviews.review}</p>
+                              <img src={this.state.reviews.book && this.state.reviews.book.imgUrl} alt="oops" className="editImage"></img>
                                 
-                              <button 
-                                type="button"
+                              <Button 
+                                color="danger"
                                 id={this.state.reviews.id}
                                 onClick={this.handleDeleteReview}
-                                className="reviewDelete"
-                                >Delete Review</button>
-                                <button 
-                                type="button"
+                                className="card-delete mt-2"
+                                >Delete Review</Button>
+                                <Button 
+                                color="info"
                                 onClick={() => this.props.history.push("/review/edit")}
                                 className="reviewDelete"
-                                >Change Review</button>
+                                >Change Review</Button>
+                                </Card>
+                             </form>
                                 </div>
-                             </form>)
+                             </div>
+                             )
                         
                               :
                        (<div>  

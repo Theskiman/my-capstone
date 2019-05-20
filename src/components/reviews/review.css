@@ -46,3 +46,24 @@ font-size: 30px;
      min-height: 300px;
      margin-top: 20px;
  }
+
+ .reviewCard{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     max-width: 350px;
+   max-height: 500px;
+   margin: auto;
+   
+ }
+
+.editImage{
+    width: 200px;
+    height: 250px;
+}
+
+.trueReview{
+    font-family: "American Typewriter", serif;
+   font-size: 17px;
+}
