@@ -63,7 +63,7 @@ componentDidMount() {
                    <Col sm="6">
                      <div className="libDiv">
                         <Card className="ugh">
-                            <CardBody>
+                            <CardBody className="ugh2">
                                 
                                 <CardTitle className="bookTitle">{book.title}</CardTitle>
                                 <CardSubtitle className="bookAuthor">{book.author}</CardSubtitle>
