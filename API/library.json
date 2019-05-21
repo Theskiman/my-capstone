@@ -25,13 +25,6 @@
       "id": 3
     }
   ],
-  "reviews": [
-    {
-      "userId": 1,
-      "bookId": 2,
-      "review": "Add the review",
-      "id": 1
-    }
-  ],
+  "reviews": [],
   "friends": []
 }

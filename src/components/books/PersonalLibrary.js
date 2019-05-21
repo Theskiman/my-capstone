@@ -44,7 +44,7 @@ componentDidMount() {
         return (
             <article className="header">
             <div className="background-image">
-                <h1 className="yourLib">Your Library</h1>
+                <h1 className="yourLib">A Novel Idea</h1>
                 <div className="searchButton">
                     <button type="button"
                             className="btn btn-success"

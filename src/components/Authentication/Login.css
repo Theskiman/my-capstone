@@ -1,0 +1,10 @@
+.background-image{
+    background: linear-gradient(rgba(0,0,0,0.5)),url(../../Images/capstone-background.png) no-repeat;
+    display: table;
+    position: relative;
+    width: 100vw;
+    min-height: 700px;
+ 
+    background-size: cover;
+    background-attachment: fixed;
+ }

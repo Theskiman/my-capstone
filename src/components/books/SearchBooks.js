@@ -61,15 +61,15 @@ export default class SearchedBooks extends Component {
     }
         
       handleSaveBook = (event) => {
-          if (event.target.parentNode.firstChild.nextSibling.nextSibling.getAttribute("src") !== ""){
+          if (event.target.parentNode.firstChild.getAttribute("src") !== ""){
             let userId = sessionStorage.getItem("userId")
             userId = parseInt(userId)
               let newBook = {
                   
-                title: event.target.parentNode.firstChild.firstChild.textContent,
-                author: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
-                summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
-                imgUrl: event.target.parentNode.firstChild.nextSibling.getAttribute("src"),
+                title: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
+                author: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
+                summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.nextSibling.textContent,
+                imgUrl: event.target.parentNode.firstChild.firstChild.getAttribute("src"),
                 userId: userId
                 }
                 this.props.addBook(newBook).then(() => this.props.history.push("/"))
@@ -79,9 +79,9 @@ export default class SearchedBooks extends Component {
                 let userId = sessionStorage.getItem("userId")
                 userId = parseInt(userId)
                let newBook = {
-                title: event.target.parentNode.firstChild.firstChild.textContent,
-                author: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
-                summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
+                title: event.target.parentNode.firstChild.firstChild.nextSibling.textContent,
+                author: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.textContent,
+                summary: event.target.parentNode.firstChild.firstChild.nextSibling.nextSibling.nextSibling.textContent,
                 imgUrl: "https://tse3.mm.bing.net/th?id=OIP.OcnLjfzboIj5HXnUmbVD1QHaGO&pid=Api&P=0&w=187&h=158",
                 userId: sessionStorage.getItem(userId)
             }
@@ -152,7 +152,7 @@ export default class SearchedBooks extends Component {
                           <p> {book.volumeInfo.title} </p>
                           <p>{book.volumeInfo.authors}</p>
                           
-                          <p className="descriptionOverflow">{book.volumeInfo.description}</p>
+                          <p className>{book.volumeInfo.description}</p>
                           </Card>
                           
                                 

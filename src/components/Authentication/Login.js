@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import UserManager from "../../modules/UserManager"
+import "./Login.css"
 
 export default class Login extends Component {
 
@@ -38,7 +39,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div className="background-image">
             <form onSubmit={this.handleLogin}>
                 <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label htmlFor="inputEmail">
